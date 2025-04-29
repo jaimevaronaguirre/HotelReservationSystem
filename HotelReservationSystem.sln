@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelReservationSystem.Domain", "src\HotelReservationSystem.Domain\HotelReservationSystem.Domain.csproj", "{AB2CBF1F-E9BD-493E-AEDE-1766F0D4B4A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelReservationSystem.Application", "src\HotelReservationSystem.Application\HotelReservationSystem.Application.csproj", "{C60F2016-526F-40C5-9D9B-9B7B23E95FD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelReservationSystem.Infrastructure", "src\HotelReservationSystem.Infrastructure\HotelReservationSystem.Infrastructure.csproj", "{1CDC4C3C-793D-4776-9070-DC9FADEA5ECE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB2CBF1F-E9BD-493E-AEDE-1766F0D4B4A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB2CBF1F-E9BD-493E-AEDE-1766F0D4B4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB2CBF1F-E9BD-493E-AEDE-1766F0D4B4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB2CBF1F-E9BD-493E-AEDE-1766F0D4B4A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C60F2016-526F-40C5-9D9B-9B7B23E95FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C60F2016-526F-40C5-9D9B-9B7B23E95FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C60F2016-526F-40C5-9D9B-9B7B23E95FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C60F2016-526F-40C5-9D9B-9B7B23E95FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CDC4C3C-793D-4776-9070-DC9FADEA5ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CDC4C3C-793D-4776-9070-DC9FADEA5ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CDC4C3C-793D-4776-9070-DC9FADEA5ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CDC4C3C-793D-4776-9070-DC9FADEA5ECE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B892D26E-34B4-434F-A8F4-C5C093F8C23C}
+	EndGlobalSection
+EndGlobal
