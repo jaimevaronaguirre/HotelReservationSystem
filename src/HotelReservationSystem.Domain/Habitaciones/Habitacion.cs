@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using HotelReservationSystem.Domain.Abstractions;
+﻿using HotelReservationSystem.Domain.Abstractions;
+using HotelReservationSystem.Domain.Shared;
 
 namespace HotelReservationSystem.Domain.Habitaciones
 {
@@ -13,33 +8,39 @@ namespace HotelReservationSystem.Domain.Habitaciones
 
         private Habitacion() {}
 
-        public Habitacion(
+        public Habitacion (
             HabitacionId id,
             NumeroHabitacion numero,
             TipoHabitacion tipo,
             EstadoHabitacion estado,
-            Precio precioPorNoche,
-            DateTime? fechaUltimaAlquiler,
+            PrecioPorNoche precio,
+            Moneda servicioAdicional,            
+            DateTime? fechaUltimaReserva,
             Capacidad capacidad,
+            List<AccesorioHabitacion> accesorios,
             Ubicacion ubicacion
             ): base(id)
-        {
-            Id = id;
+        {            
             Numero = numero;
             Tipo = tipo;
             Estado = estado;
-            PrecioPorNoche = precioPorNoche;
+            PrecioPorNoche = precio;
+            ServicioAdicional = servicioAdicional;
+            FechaUltimaReserva = fechaUltimaReserva;
             Capacidad = capacidad;
+            Accesorios = accesorios;
             Ubicacion = ubicacion;
         }
 
         //public HabitacionId Id { get; private set; }
-        public NumeroHabitacion Numero { get; private set; }
-        public TipoHabitacion Tipo { get; private set; }
-        public EstadoHabitacion Estado { get; private set; }
-        public Precio PrecioPorNoche { get; private set; }
-        public DateTime? FechaUltimaAlquiler { get; internal set; }
-        public Capacidad Capacidad { get; private set; }
-        public Ubicacion Ubicacion { get; private set; }
+        public NumeroHabitacion? Numero { get; private set; }
+        public TipoHabitacion? Tipo { get; private set; }
+        public Ubicacion? Ubicacion { get; private set; }
+        public EstadoHabitacion? Estado { get; private set; }
+        public PrecioPorNoche? PrecioPorNoche { get; private set; }        
+        public Moneda? ServicioAdicional { get; private set; }
+        public DateTime? FechaUltimaReserva { get; internal set; }
+        public Capacidad? Capacidad { get; private set; }        
+        public List<AccesorioHabitacion> Accesorios { get; private set; } = new();
     }
 }
