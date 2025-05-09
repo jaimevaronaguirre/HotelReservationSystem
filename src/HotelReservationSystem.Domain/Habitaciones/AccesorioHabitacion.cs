@@ -9,5 +9,6 @@
         Televisor = 5,
         Wifi = 6,
         CajaFuerte = 7,
+        VistaAlMar = 8,
     }
 }

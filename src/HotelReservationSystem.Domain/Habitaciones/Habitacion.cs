@@ -13,7 +13,7 @@ namespace HotelReservationSystem.Domain.Habitaciones
             NumeroHabitacion numero,
             TipoHabitacion tipo,
             EstadoHabitacion estado,
-            PrecioPorNoche precio,
+            Moneda precioReserva,
             Moneda servicioAdicional,            
             DateTime? fechaUltimaReserva,
             Capacidad capacidad,
@@ -24,20 +24,18 @@ namespace HotelReservationSystem.Domain.Habitaciones
             Numero = numero;
             Tipo = tipo;
             Estado = estado;
-            PrecioPorNoche = precio;
+            PrecioReserva = precioReserva;
             ServicioAdicional = servicioAdicional;
             FechaUltimaReserva = fechaUltimaReserva;
             Capacidad = capacidad;
             Accesorios = accesorios;
             Ubicacion = ubicacion;
         }
-
-        //public HabitacionId Id { get; private set; }
         public NumeroHabitacion? Numero { get; private set; }
         public TipoHabitacion? Tipo { get; private set; }
         public Ubicacion? Ubicacion { get; private set; }
         public EstadoHabitacion? Estado { get; private set; }
-        public PrecioPorNoche? PrecioPorNoche { get; private set; }        
+        public Moneda? PrecioReserva { get; private set; }        
         public Moneda? ServicioAdicional { get; private set; }
         public DateTime? FechaUltimaReserva { get; internal set; }
         public Capacidad? Capacidad { get; private set; }        
