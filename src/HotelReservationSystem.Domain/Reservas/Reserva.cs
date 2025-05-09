@@ -79,7 +79,7 @@ namespace HotelReservationSystem.Domain.Reservas
                fechaCreacion
             );
 
-            reserva.RaiseDomainEvent(new HabitacionReservadoDomainEvent(reserva.Id!));
+            reserva.RaiseDomainEvent(new HabitacionReservadaDomainEvent(reserva.Id!));
 
             habitacion.FechaUltimaReserva = fechaCreacion;
 
@@ -97,7 +97,7 @@ namespace HotelReservationSystem.Domain.Reservas
             Status = ReservaStatus.Confirmado;
             FechaConfirmacion = utcNow;
 
-            RaiseDomainEvent(new HabitacionReservadoDomainEvent(Id!));
+            RaiseDomainEvent(new ReservaConfirmadaDomainEvent(Id!));
             return Result.Success();
         }
 
