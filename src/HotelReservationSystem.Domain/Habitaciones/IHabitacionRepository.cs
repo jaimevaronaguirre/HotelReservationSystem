@@ -8,6 +8,6 @@ namespace HotelReservationSystem.Domain.Habitaciones
 {
     public interface IHabitacionRepository
     {
-        Task<Habitacion?> GetByIdAsync(Habitacion id, CancellationToken cancellationToken = default);
+        Task<Habitacion?> GetByIdAsync(HabitacionId id, CancellationToken cancellationToken = default);
     }
 }
