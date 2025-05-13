@@ -61,7 +61,7 @@ namespace HotelReservationSystem.Application.Habitaciones.SearchHabitaciones
             var habitaciones = await connection
                 .QueryAsync<HabitacionesResponse, UbicacionResponse, HabitacionesResponse>
                 (
-                    sql,
+                    sql, 
                     (habitacion, ubicacion) =>
                     {
                         habitacion.Ubicacion = ubicacion;
@@ -73,7 +73,7 @@ namespace HotelReservationSystem.Application.Habitaciones.SearchHabitaciones
                         EndDate = request.fechaFin,
                         ActiveReservaStatuses
                     },
-                    splitOn: "Pais"
+                    splitOn: "Piso"
                 );
             return habitaciones.ToList();
 
