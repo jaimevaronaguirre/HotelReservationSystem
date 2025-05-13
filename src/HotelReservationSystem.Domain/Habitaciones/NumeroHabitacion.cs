@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace HotelReservationSystem.Domain.Habitaciones
 {
-    public record NumeroHabitacion(int Value);
+    public record NumeroHabitacion(string Value);
     
 }
