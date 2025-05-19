@@ -7,5 +7,5 @@ using HotelReservationSystem.Domain.Abstractions;
 
 namespace HotelReservationSystem.Domain.Reservas.Event
 {
-    public sealed class ReservaCanceladaDomainEvent(ReservaId Id) : IDomainEvent;
+    public sealed record ReservaCanceladaDomainEvent(ReservaId ReservaId) : IDomainEvent;
 }

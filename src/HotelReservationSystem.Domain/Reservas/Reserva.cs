@@ -38,14 +38,13 @@ namespace HotelReservationSystem.Domain.Reservas
             FechaCreacion = fechaCreacion;
         }
 
-        public ReservaStatus Status { get; private set; }
         public HabitacionId? HabitacionId { get; private set; }
         public Users.UserId? UserId { get; private set; }
         public Moneda? PrecioPorNoche { get; private set; }
         public Moneda? ServicioAdicional { get; private set; }
         public Moneda? AccesoriosHabitacion {  get; private set; }
-        public Moneda? PrecioTotal {  get; private set; }
-
+        public Moneda? PrecioTotal {  get; private set; }        
+        public ReservaStatus Status { get; private set; }
         public DateRange? Duracion { get; private set; }
         public DateTime? FechaCreacion { get; private set; }
         public DateTime? FechaConfirmacion { get; private set; }

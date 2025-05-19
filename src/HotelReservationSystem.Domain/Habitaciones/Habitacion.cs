@@ -3,15 +3,13 @@ using HotelReservationSystem.Domain.Shared;
 
 namespace HotelReservationSystem.Domain.Habitaciones
 {
-    public sealed class Habitacion : Entity<HabitacionId>
-    {
+    public sealed class Habitacion : Entity<HabitacionId>    {
 
         private Habitacion() {}
 
         public Habitacion (
-            HabitacionId id,
-            NumeroHabitacion numero,
-            TipoHabitacion tipo,
+            HabitacionId id,            
+            TipoHabitacion tipoHabitacion,
             EstadoHabitacion estado,
             Moneda precioReserva,
             Moneda servicioAdicional,            
@@ -20,9 +18,9 @@ namespace HotelReservationSystem.Domain.Habitaciones
             List<AccesorioHabitacion> accesorios,
             Ubicacion ubicacion
             ): base(id)
-        {            
-            Numero = numero;
-            Tipo = tipo;
+        {
+
+            TipoHabitacion = tipoHabitacion;
             Estado = estado;
             PrecioReserva = precioReserva;
             ServicioAdicional = servicioAdicional;
@@ -31,8 +29,8 @@ namespace HotelReservationSystem.Domain.Habitaciones
             Accesorios = accesorios;
             Ubicacion = ubicacion;
         }
-        public NumeroHabitacion? Numero { get; private set; }
-        public TipoHabitacion? Tipo { get; private set; }
+        
+        public TipoHabitacion? TipoHabitacion { get; private set; }
         public Ubicacion? Ubicacion { get; private set; }
         public EstadoHabitacion? Estado { get; private set; }
         public Moneda? PrecioReserva { get; private set; }        

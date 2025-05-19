@@ -7,6 +7,6 @@ using HotelReservationSystem.Domain.Abstractions;
 
 namespace HotelReservationSystem.Domain.Reservas.Event
 {
-    public sealed class ReservaCompletadaDomainEvent(ReservaId Id) : IDomainEvent;
+    public sealed record ReservaCompletadaDomainEvent(ReservaId Id) : IDomainEvent;
     
 }

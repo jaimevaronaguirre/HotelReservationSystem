@@ -2,6 +2,6 @@
 
 namespace HotelReservationSystem.Domain.Reservas.Event
 {
-    public sealed class ReservaRechazadaDomainEvent(ReservaId Id) : IDomainEvent;
+    public sealed record ReservaRechazadaDomainEvent(ReservaId Id) : IDomainEvent;
     
 }
