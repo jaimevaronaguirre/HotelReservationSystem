@@ -6,6 +6,7 @@ using HotelReservationSystem.Domain.Abstractions;
 using HotelReservationSystem.Domain.Habitaciones;
 using HotelReservationSystem.Domain.Reservas;
 using HotelReservationSystem.Domain.Users;
+using HotelReservationSystem.Infrastructure.Clock;
 using HotelReservationSystem.Infrastructure.Data;
 using HotelReservationSystem.Infrastructure.Email;
 using HotelReservationSystem.Infrastructure.Repositories;
@@ -21,7 +22,7 @@ namespace HotelReservationSystem.Infrastructure
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddTransient<IDateTimeProvider, IDateTimeProvider>();
+            services.AddTransient<IDateTimeProvider, DateTimeProvider>();            
             services.AddTransient<IEmailService, EmailService>();
 
             var connectionString = configuration.GetConnectionString("Database")
@@ -35,6 +36,7 @@ namespace HotelReservationSystem.Infrastructure
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IHabitacionRepository, HabitacionRepository>();
             services.AddScoped<IReservaRepository, ReservaRepository>();
+                      
 
             services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
 

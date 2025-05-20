@@ -7,5 +7,6 @@ namespace HotelReservationSystem.Application.Reservas.ReservaHabitacion
         Guid UserId,
         DateOnly FechaInicio,
         DateOnly FechaFin
-    ): ICommand<Guid>;
+    ) : ICommand<Guid>;
+    
 }
