@@ -18,6 +18,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();    
 }
 app.ApplyMigration();
+//app.SeedData();
+app.UseCustomExceptionHandler();
 
 app.UseAuthorization();
 

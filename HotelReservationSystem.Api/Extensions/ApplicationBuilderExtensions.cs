@@ -6,7 +6,7 @@ namespace HotelReservationSystem.Api.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
-        public static async void ApplyMigration(this IApplicationBuilder app)
+        public static async Task ApplyMigration(this IApplicationBuilder app)       
         {
             using (var scope = app.ApplicationServices.CreateScope())
             {

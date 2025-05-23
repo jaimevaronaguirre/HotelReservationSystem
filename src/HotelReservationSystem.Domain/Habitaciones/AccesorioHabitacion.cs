@@ -8,7 +8,6 @@
         Balcon = 4,
         Televisor = 5,
         Wifi = 6,
-        CajaFuerte = 7,
-        VistaAlMar = 8,
+        CajaFuerte = 7,        
     }
 }

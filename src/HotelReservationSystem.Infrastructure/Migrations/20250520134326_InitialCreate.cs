@@ -28,7 +28,7 @@ namespace HotelReservationSystem.Infrastructure.Migrations
                     ServicioAdicional = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FechaUltimaReserva = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CapacidadValor = table.Column<int>(type: "int", nullable: true),
-                    Accesorios = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Accesorios = table.Column<string>(type: "int", nullable: false),
                     Version = table.Column<long>(type: "bigint", rowVersion: true, nullable: false)
                 },
                 constraints: table =>

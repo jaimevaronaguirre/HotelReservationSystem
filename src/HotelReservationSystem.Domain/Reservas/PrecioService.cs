@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HotelReservationSystem.Domain.Habitaciones;
+﻿using HotelReservationSystem.Domain.Habitaciones;
 using HotelReservationSystem.Domain.Shared;
 
 namespace HotelReservationSystem.Domain.Reservas
@@ -45,7 +40,7 @@ namespace HotelReservationSystem.Domain.Reservas
                     AccesorioHabitacion.Balcon => 0.04m,              // Vista o espacio adicional
                     AccesorioHabitacion.Televisor => 0.02m,                  // Básico, pero algunos lo consideran opcional
                     AccesorioHabitacion.CajaFuerte => 0.03m,  
-                    AccesorioHabitacion.VistaAlMar => 0.07m,
+                    
                     _=> 0
                 };
             }

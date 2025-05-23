@@ -37,24 +37,28 @@ namespace HotelReservationSystem.Application.Habitaciones.SearchHabitaciones
 
             const string sql = @"
                 SELECT
-                    a.Id,
-                    a.Tipo,
-                    a.Numero,
-                    a.PrecioReserva,
-                    a.TipoMoneda,
-                    a.Piso,
-                    a.NumeroPuerta,
-                    a.Torre,
-                    a.Vista,
-                    a.DescripcionAdicional
-                FROM Habitaciones AS a
+                    a.HabitacionId,
+                    a.TipoHabitacion,
+                    a.UbicacionPiso,
+                    a.UbicacionNumeroPuerta,
+                    a.UbicacionVista,
+                    a.UbicacionDescripcion,
+                    a.Estado,
+                    a.PrecioReserva_Monto,                    
+                    a.PrecioReserva_TipoMoneda,
+                    a.ServicioAdicional_Monto,
+                    a.ServicioAdicional_TipoMoneda,
+                    a.Capacidad,
+                    a.Accesorios,
+                    a.Version
+                FROM Habitacion AS a
                 WHERE NOT EXISTS (
                     SELECT 1
-                    FROM Reservas AS b
+                    FROM Reserva AS b
                     WHERE
-                        b.HabitacionId = a.Id AND
+                        b.HabitacionId = a.HabitacionId AND
                         b.DuracionInicio <= @EndDate AND
-                        b.DuracionFinal >= @StartDate AND
+                        b.DuracionFin >= @StartDate AND
                         b.Status IN @ActiveReservaStatuses
                 )
             ";
@@ -73,7 +77,7 @@ namespace HotelReservationSystem.Application.Habitaciones.SearchHabitaciones
                         EndDate = request.fechaFin,
                         ActiveReservaStatuses
                     },
-                    splitOn: "Piso"
+                    splitOn: "UbicacionPiso"
                 );
             return habitaciones.ToList();
 

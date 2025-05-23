@@ -37,6 +37,6 @@ namespace HotelReservationSystem.Domain.Habitaciones
         public Moneda? ServicioAdicional { get; private set; }
         public DateTime? FechaUltimaReserva { get; internal set; }
         public Capacidad? Capacidad { get; private set; }        
-        public List<AccesorioHabitacion> Accesorios { get; private set; } = new();
+        public List<AccesorioHabitacion> Accesorios { get; private set; } = new();        
     }
 }
