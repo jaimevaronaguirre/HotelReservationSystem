@@ -1,7 +1,5 @@
-﻿
-using HotelReservationSystem.Domain.Users;
+﻿using HotelReservationSystem.Domain.Users;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
 
 namespace HotelReservationSystem.Infrastructure.Repositories
 {
@@ -11,11 +9,23 @@ namespace HotelReservationSystem.Infrastructure.Repositories
        {
        }
 
-        //public async Task<User?> GetByEmailAsync(Domain.Users.Email email, CancellationToken cancellationToken = default)
-        //{
-        //    return await DbContext.Set<User>()
-        //     .FirstOrDefaultAsync(x => x.Email == email, cancellationToken);
-        //}
+        public async Task<User?> GetByEmailAsync(Domain.Users.Email email, CancellationToken cancellationToken = default)
+        {
+            return await DbContext.Set<User>()
+             .FirstOrDefaultAsync(x => x.Email == email, cancellationToken);
+        }
 
+        public async Task<bool> IsUserExists(
+            Domain.Users.Email email,
+            CancellationToken cancellationToken = default)
+        {
+            return await DbContext.Set<User>()
+              .AnyAsync(x => x.Email == email);
+        }
+
+        //public override void Add(User user)
+        //{
+        //    foreach (var role in user.)
+        //}
     }
 }

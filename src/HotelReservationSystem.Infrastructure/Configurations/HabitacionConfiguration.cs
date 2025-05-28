@@ -50,6 +50,7 @@ namespace HotelReservationSystem.Infrastructure.Configurations
             // ==== PrecioReserva ====
             builder.OwnsOne(h => h.PrecioReserva, precio => {
                 precio.Property(moneda => moneda.TipoMoneda)
+                .HasPrecision(18, 4) // Ajusta según tus necesidades
                 .HasConversion(tipoMoneda => tipoMoneda.Codigo, codigo => TipoMoneda.FromCodigo(codigo!));
             });
 
@@ -57,6 +58,7 @@ namespace HotelReservationSystem.Infrastructure.Configurations
             // ==== ServicioAdicional ====
             builder.OwnsOne(habitacion => habitacion.ServicioAdicional, priceBuilder => {
                 priceBuilder.Property(moneda => moneda.TipoMoneda)
+                .HasPrecision(18, 4) // Ajusta según tus necesidades
                 .HasConversion(tipoMoneda => tipoMoneda.Codigo, codigo => TipoMoneda.FromCodigo(codigo!));
             });
             

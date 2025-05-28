@@ -4,18 +4,69 @@ using Dapper;
 using HotelReservationSystem.Application.Abstractions.Data;
 using HotelReservationSystem.Domain.Habitaciones;
 using HotelReservationSystem.Domain.Shared;
+using HotelReservationSystem.Domain.Users;
+using HotelReservationSystem.Infrastructure;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace HotelReservationSystem.Api.Extensions
 {
     public static class SeedDataExtensions
     {
+        public static void SeedDataAuthentication(
+        this IApplicationBuilder app
+        )
+        {
+            using var scope = app.ApplicationServices.CreateScope();
+            var service = scope.ServiceProvider;
+            var loggerFactory = service.GetRequiredService<ILoggerFactory>();
+
+            try
+            {
+                var context = service.GetRequiredService<ApplicationDbContext>();
+
+                if (!context.Set<User>().Any())
+                {
+                    var passwordHash = BCrypt.Net.BCrypt.HashPassword("Test123$");
+
+                    var user = User.Create(
+                        new Nombre("Vaxi"),
+                        new Apellido("Drez"),
+                        new Email("vaxi.drez@gmail.com"),
+                        new PasswordHash(passwordHash)
+                    );
+
+                    context.Add(user);
+
+                    passwordHash = BCrypt.Net.BCrypt.HashPassword("Admin123$");
+
+                    user = User.Create(
+                    new Nombre("Admin"),
+                    new Apellido("Admin"),
+                    new Email("admin@gmail.com"),
+                    new PasswordHash(passwordHash)
+                    );
+
+                    context.Add(user);
+                    context.SaveChangesAsync().Wait();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                var logger = loggerFactory.CreateLogger<ApplicationDbContext>();
+                logger.LogError(ex.Message);
+
+            }
+        }
+    
         public static void SeedData(this IApplicationBuilder app)
         {
             using var scope = app.ApplicationServices.CreateScope();
             var sqlConnectionFactory = scope.ServiceProvider.GetRequiredService<ISqlConnectionFactory>();
             using var connection = sqlConnectionFactory.CreateConnection();
-
             var faker = new Faker();
+
 
             List<object> habitaciones = new();
 
@@ -49,7 +100,7 @@ namespace HotelReservationSystem.Api.Extensions
 
                 });
             }
-            
+
             const string sql = """
             INSERT INTO [HotelReservaHabitacionBD].[dbo].[Habitacion]
             ([HabitacionId], [TipoHabitacion], [UbicacionPiso], [UbicacionNumeroPuerta], [UbicacionVista], [UbicacionDescripcion],
@@ -60,7 +111,7 @@ namespace HotelReservationSystem.Api.Extensions
             @FechaUltimaReserva, @Capacidad, @Accesorios,@Version)
             """;
 
-            connection.Execute(sql, habitaciones);            
+            connection.Execute(sql, habitaciones);
 
         }
     }

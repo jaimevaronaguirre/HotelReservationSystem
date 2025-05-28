@@ -1,5 +1,6 @@
 ﻿using HotelReservationSystem.Application.Habitaciones.SearchHabitaciones;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelReservationSystem.Api.Controllers.Habitaciones
@@ -14,7 +15,7 @@ namespace HotelReservationSystem.Api.Controllers.Habitaciones
         {
             _sender = sender;
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> SearchHabitaciones(
             DateOnly startDate,

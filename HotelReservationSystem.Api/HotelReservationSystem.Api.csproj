@@ -24,8 +24,4 @@
     <ProjectReference Include="..\src\HotelReservationSystem.Infrastructure\HotelReservationSystem.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\Users\" />
-  </ItemGroup>
-
 </Project>

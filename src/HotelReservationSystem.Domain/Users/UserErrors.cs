@@ -19,5 +19,10 @@ namespace HotelReservationSystem.Domain.Users
             "User.InvalidCredentials",
             "Las credenciales son incorrectas"
         );
+
+        public static Error AlreadyExists = new(
+           "User.AlreadyExists",
+           "El usuario ya existe en la base de datos"
+        );
     }
 }

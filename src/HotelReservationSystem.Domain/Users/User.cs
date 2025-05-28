@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,9 +44,10 @@ namespace HotelReservationSystem.Domain.Users
             {
             var user = new User(UserId.New(), nombre, apellido, email, passwordHash);
             user.RaiseDomainEvent(new UserCreatedDomainEvent(user.Id!));
+            //user._
             return user;
             }
+        //public IReadOnlyCollection<Role>? Roles => _roles.ToList();
 
-        
     }
 }
